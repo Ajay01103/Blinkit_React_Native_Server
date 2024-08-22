@@ -3,11 +3,14 @@ import Fastify from "fastify"
 import { connectDB } from "./src/config/connect.js"
 import { PORT } from "./src/config/config.js"
 import { admin, buildAdminRouter } from "./src/config/setup.js"
+import { registerRoutes } from "./src/routes/index.js"
 
 const start = async () => {
   const fastify = Fastify({
     logger: true,
   })
+
+  await registerRoutes(fastify)
 
   await connectDB(process.env.DATABASE_URL)
   await buildAdminRouter(fastify)
