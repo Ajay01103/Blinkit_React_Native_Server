@@ -52,7 +52,7 @@ const orderSchema = new mongoose.Schema({
     enum: ["available", "confirmed", "arriving", "delivered", "cancelled"],
     default: "available",
   },
-  totalprice: { type: Number, required: true },
+  totalPrice: { type: Number, required: true },
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },
 })
